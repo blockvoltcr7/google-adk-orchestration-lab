@@ -1,0 +1,7 @@
+metrics_to_run:
+  - sequential_pipeline_policy
+
+custom_metrics:
+  - name: sequential_pipeline_policy
+    custom_function_file: eval_metrics.py
+    execution: local

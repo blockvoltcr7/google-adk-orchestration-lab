@@ -1,0 +1,7 @@
+metrics_to_run:
+  - hitl_authorization_policy
+
+custom_metrics:
+  - name: hitl_authorization_policy
+    custom_function_file: eval_metrics.py
+    execution: local

@@ -1,0 +1,26 @@
+{
+  "eval_cases": [
+    {
+      "eval_case_id": "gather_starlight_diligence",
+      "prompt": {
+        "role": "user",
+        "parts": [
+          {
+            "text": "{\"name\":\"Starlight Cloud\",\"ticker\":\"STAR\",\"industry\":\"Infrastructure\"}"
+          }
+        ]
+      }
+    },
+    {
+      "eval_case_id": "gather_acme_diligence",
+      "prompt": {
+        "role": "user",
+        "parts": [
+          {
+            "text": "{\"name\":\"Acme Robotics\",\"ticker\":\"ACME\",\"industry\":\"Automation\"}"
+          }
+        ]
+      }
+    }
+  ]
+}

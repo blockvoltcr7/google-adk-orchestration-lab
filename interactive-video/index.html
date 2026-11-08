@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Agent SDK Builder Lab - Interactive Architecture Video & Simulation Studio</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div id="app-container">
+    <!-- Top Header Bar -->
+    <header class="top-bar">
+      <div class="brand-section">
+        <div class="brand-logo">
+          <svg viewBox="0 0 24 24">
+            <path d="M12 2L2 22h20L12 2zm0 6l5 10H7l5-10z"/>
+          </svg>
+        </div>
+        <div class="brand-text">
+          <h1>AGENT SDK BUILDER LAB</h1>
+          <p>BUILD • TEST • EVALUATE • DEPLOY</p>
+        </div>
+      </div>
+
+      <div class="top-controls">
+        <div class="scenario-picker">
+          <label for="scenario-select">Scenario:</label>
+          <select id="scenario-select">
+            <option value="interactive">Full Architecture Walkthrough (Default)</option>
+            <option value="happyPath">Enterprise Lead Qualification (Happy Path)</option>
+            <option value="guardrailFail">PII Interception & Route-Back (Guardrail Check)</option>
+            <option value="evalRetry">Hallucination Self-Correction (Eval Retry Loop)</option>
+            <option value="humanApproval">High-Stakes Human-in-the-Loop Gate</option>
+          </select>
+        </div>
+
+        <button id="btn-record" class="btn-pill btn-record" title="Record 60FPS WebM Video">
+          <span style="display:inline-block; width:8px; height:8px; background:currentColor; border-radius:50%;"></span>
+          <span id="record-text">Record Video</span>
+        </button>
+
+        <button id="btn-help" class="btn-pill" title="Keyboard Shortcuts & Guide">
+          <span>Shortcuts (?)</span>
+        </button>
+      </div>
+    </header>
+
+    <!-- Main Interactive Canvas Viewport -->
+    <main class="canvas-wrapper">
+      <canvas id="architecture-canvas"></canvas>
+
+      <!-- Floating Subtitles / Captions HUD -->
+      <div id="captions-hud" class="captions-hud">
+        <div class="caption-meta">
+          <span id="caption-chapter" class="chapter-tag">Chapter 1: Ingestion & Intent</span>
+          <div class="caption-status">
+            <span class="status-dot"></span>
+            <span id="caption-status-text">Ingesting user input across Web, Mobile & CLI...</span>
+          </div>
+        </div>
+        <p id="caption-body" class="caption-text">
+          Every agentic execution begins at the client perimeter. Requests from Web, Mobile, or CLI are captured alongside conversation history, preferences, and session state.
+        </p>
+      </div>
+    </main>
+
+    <!-- Video Player Controls Bar -->
+    <footer class="video-controls">
+      <!-- Scrubber Timeline -->
+      <div id="timeline-container" class="timeline-container">
+        <div class="timeline-track">
+          <div id="timeline-progress" class="timeline-progress"></div>
+        </div>
+        <div id="timeline-handle" class="timeline-handle"></div>
+        <div id="timeline-tooltip" class="timeline-tooltip">00:00</div>
+      </div>
+
+      <!-- Controls Row -->
+      <div class="controls-row">
+        <div class="left-controls">
+          <button id="btn-play-pause" class="btn-icon btn-play-pause" title="Play / Pause (Space)">
+            <svg id="play-icon" viewBox="0 0 24 24">
+              <polygon points="5 3 19 12 5 21 5 3"></polygon>
+            </svg>
+            <svg id="pause-icon" viewBox="0 0 24 24" style="display:none;">
+              <rect x="6" y="4" width="4" height="16"></rect>
+              <rect x="14" y="4" width="4" height="16"></rect>
+            </svg>
+          </button>
+
+          <button id="btn-replay" class="btn-icon" title="Replay from Start">
+            <svg viewBox="0 0 24 24">
+              <path d="M12 5V1L7 6l5 5V7c3.31 0 6 2.69 6 6s-2.69 6-6 6-6-2.69-6-6H4c0 4.42 3.58 8 8 8s8-3.58 8-8-3.58-8-8-8z"/>
+            </svg>
+          </button>
+
+          <button id="btn-prev-chapter" class="btn-icon" title="Previous Chapter">
+            <svg viewBox="0 0 24 24">
+              <polygon points="19 20 9 12 19 4 19 20"></polygon>
+              <line x1="5" y1="19" x2="5" y2="5" stroke="currentColor" stroke-width="2"></line>
+            </svg>
+          </button>
+
+          <button id="btn-next-chapter" class="btn-icon" title="Next Chapter">
+            <svg viewBox="0 0 24 24">
+              <polygon points="5 4 15 12 5 20 5 4"></polygon>
+              <line x1="19" y1="5" x2="19" y2="19" stroke="currentColor" stroke-width="2"></line>
+            </svg>
+          </button>
+
+          <div class="time-display">
+            <span id="time-current" class="time-current">00:00</span> / <span id="time-total">03:00</span>
+          </div>
+        </div>
+
+        <div class="right-controls">
+          <select id="speed-select" class="speed-select" title="Playback Speed">
+            <option value="0.75">0.75x</option>
+            <option value="1.0" selected>1.0x</option>
+            <option value="1.25">1.25x</option>
+            <option value="1.5">1.5x</option>
+            <option value="2.0">2.0x</option>
+          </select>
+
+          <button id="btn-mute" class="btn-icon" title="Voice Narration Mute / Unmute (M)">
+            <svg id="volume-high-icon" viewBox="0 0 24 24">
+              <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+              <path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07" stroke="currentColor" stroke-width="2" fill="none"></path>
+            </svg>
+            <svg id="volume-muted-icon" viewBox="0 0 24 24" style="display:none;">
+              <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+              <line x1="23" y1="9" x2="17" y2="15" stroke="currentColor" stroke-width="2"></line>
+              <line x1="17" y1="9" x2="23" y2="15" stroke="currentColor" stroke-width="2"></line>
+            </svg>
+          </button>
+
+          <button id="btn-captions" class="btn-icon active" title="Toggle Closed Captions (C)">
+            <svg viewBox="0 0 24 24">
+              <rect x="2" y="4" width="20" height="16" rx="2" stroke="currentColor" stroke-width="2" fill="none"></rect>
+              <path d="M7 15h3m-3-3h4m4 3h3m-3-3h4" stroke="currentColor" stroke-width="2"></path>
+            </svg>
+          </button>
+
+          <button id="btn-camera-mode" class="btn-icon active" title="Director Camera Auto-Focus (D)">
+            <svg viewBox="0 0 24 24">
+              <circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="2" fill="none"></circle>
+              <path d="M3 9V5a2 2 0 0 1 2-2h4M21 9V5a2 2 0 0 0-2-2h-4M3 15v4a2 2 0 0 0 2 2h4M21 15v4a2 2 0 0 1-2 2h-4" stroke="currentColor" stroke-width="2" fill="none"></path>
+            </svg>
+          </button>
+
+          <button id="btn-fullscreen" class="btn-icon" title="Fullscreen (F)">
+            <svg viewBox="0 0 24 24">
+              <path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3" stroke="currentColor" stroke-width="2" fill="none"></path>
+            </svg>
+          </button>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Slide-over Inspector Drawer -->
+    <aside id="inspector-drawer" class="inspector-drawer">
+      <div class="drawer-header">
+        <div class="drawer-title-group">
+          <h2 id="drawer-title">Component Name</h2>
+          <span id="drawer-badge" class="adk-badge">Pattern</span>
+        </div>
+        <button id="btn-close-inspector" class="btn-icon" title="Close Drawer (Esc)">
+          <svg viewBox="0 0 24 24">
+            <line x1="18" y1="6" x2="6" y2="18" stroke="currentColor" stroke-width="2"></line>
+            <line x1="6" y1="6" x2="18" y2="18" stroke="currentColor" stroke-width="2"></line>
+          </svg>
+        </button>
+      </div>
+
+      <div class="drawer-body">
+        <div class="drawer-section">
+          <h3>ADK Pattern Mapping</h3>
+          <p id="drawer-adk-pattern" style="color: var(--neon-cyan); font-family: var(--font-mono); font-size:12px;"></p>
+        </div>
+
+        <div class="drawer-section">
+          <h3>Architectural Description</h3>
+          <p id="drawer-description"></p>
+        </div>
+
+        <div class="drawer-section">
+          <h3>Google ADK Implementation</h3>
+          <div class="code-block">
+            <button id="btn-copy-code" class="btn-copy">Copy</button>
+            <pre><code id="drawer-code"></code></pre>
+          </div>
+        </div>
+      </div>
+    </aside>
+
+    <!-- Help & Shortcuts Modal -->
+    <div id="help-modal" class="modal-backdrop">
+      <div class="modal-content">
+        <h2>Interactive Video Controls & Shortcuts</h2>
+        <div class="shortcut-list">
+          <div class="shortcut-row">
+            <span>Play / Pause</span>
+            <span class="key-badge">Space</span>
+          </div>
+          <div class="shortcut-row">
+            <span>Seek 5s Forward / Back</span>
+            <span class="key-badge">← / →</span>
+          </div>
+          <div class="shortcut-row">
+            <span>Toggle Voice Narration Mute</span>
+            <span class="key-badge">M</span>
+          </div>
+          <div class="shortcut-row">
+            <span>Toggle Closed Captions</span>
+            <span class="key-badge">C</span>
+          </div>
+          <div class="shortcut-row">
+            <span>Toggle Director Camera vs Overview</span>
+            <span class="key-badge">D</span>
+          </div>
+          <div class="shortcut-row">
+            <span>Toggle Fullscreen</span>
+            <span class="key-badge">F</span>
+          </div>
+          <div class="shortcut-row">
+            <span>Inspect Any Node</span>
+            <span class="key-badge">Click on Diagram</span>
+          </div>
+        </div>
+        <button id="btn-close-help" class="btn-pill" style="width:100%; justify-content:center;">Got it</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="data-model.js"></script>
+  <script src="audio-narration.js"></script>
+  <script src="canvas-renderer.js"></script>
+  <script src="video-recorder.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

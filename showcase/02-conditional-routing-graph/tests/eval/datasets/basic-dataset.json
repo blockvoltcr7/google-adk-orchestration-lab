@@ -1,0 +1,37 @@
+{
+  "eval_cases": [
+    {
+      "eval_case_id": "route_billing_inquiry",
+      "prompt": {
+        "role": "user",
+        "parts": [
+          {
+            "text": "{\"ticket_id\":\"BILL-01\",\"customer_id\":\"C-100\",\"subject\":\"Annual Subscription Invoice Issue\",\"body\":\"Please send the receipt for the recent billing charge.\"}"
+          }
+        ]
+      }
+    },
+    {
+      "eval_case_id": "route_technical_bug",
+      "prompt": {
+        "role": "user",
+        "parts": [
+          {
+            "text": "{\"ticket_id\":\"TECH-02\",\"customer_id\":\"C-200\",\"subject\":\"API Latency and Timeout Crash\",\"body\":\"Endpoint /v2/sync returns 504 Gateway Timeout exceptions.\"}"
+          }
+        ]
+      }
+    },
+    {
+      "eval_case_id": "route_default_fallback",
+      "prompt": {
+        "role": "user",
+        "parts": [
+          {
+            "text": "{\"ticket_id\":\"GEN-03\",\"customer_id\":\"C-300\",\"subject\":\"General feedback on new UI\",\"body\":\"We really liked the new dashboard design unveiled last week.\"}"
+          }
+        ]
+      }
+    }
+  ]
+}

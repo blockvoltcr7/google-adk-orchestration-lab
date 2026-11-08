@@ -1,0 +1,11 @@
+metrics_to_run:
+  - multi_agent_tool_policy
+  - final_response_quality
+  - safety
+  - onboarding_response_quality
+
+custom_metrics:
+  - name: multi_agent_tool_policy
+    custom_function_file: tool_policy.py
+  - name: onboarding_response_quality
+    custom_function_file: response_quality.py

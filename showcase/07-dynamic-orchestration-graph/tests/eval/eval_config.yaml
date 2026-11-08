@@ -1,0 +1,7 @@
+metrics_to_run:
+  - dynamic_orchestration_policy
+
+custom_metrics:
+  - name: dynamic_orchestration_policy
+    custom_function_file: eval_metrics.py
+    execution: local

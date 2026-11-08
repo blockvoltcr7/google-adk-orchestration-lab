@@ -1,0 +1,39 @@
+[project]
+name = "graph-hitl"
+version = "0.1.0"
+description = "Human-in-the-Loop Approval Checkpoint and Resumption Graph for Google ADK"
+authors = [
+    {name = "Google ADK Team", email = "adk-developers@google.com"},
+]
+dependencies = [
+    "google-adk[gcp,otel-gcp]>=2.2.0,<3.0.0",
+    "gcsfs>=2024.11.0",
+    "a2a-sdk[http-server]~=0.3.22",
+    "aiohttp>=3.13.4",
+    "google-cloud-logging>=3.12.0,<4.0.0",
+    "pydantic[email]>=2,<3",
+    "pyyaml>=6,<7",
+    "opentelemetry-resourcedetector-gcp>=1.12.0a0,<1.13.0",
+]
+requires-python = ">=3.11,<3.14"
+
+[dependency-groups]
+dev = [
+    "pytest>=9.0.2,<10.0.0",
+    "pytest-asyncio>=1.0.0,<2.0.0",
+    "nest-asyncio>=1.6.0,<2.0.0",
+]
+
+[project.optional-dependencies]
+eval = [
+    "google-adk[eval]>=2.0.0,<3.0.0",
+    "google-cloud-aiplatform[evaluation]>=1.156.0",
+]
+lint = [
+    "ruff>=0.4.6,<1.0.0",
+]
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
+testpaths = ["tests"]
+pythonpath = ["."]

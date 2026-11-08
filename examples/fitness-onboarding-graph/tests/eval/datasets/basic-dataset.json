@@ -1,0 +1,26 @@
+{
+  "eval_cases": [
+    {
+      "eval_case_id": "complete_intake_valid_route",
+      "prompt": {
+        "role": "user",
+        "parts": [
+          {
+            "text": "Onboard this qualified fitness client using the submitted intake:\n{\"name\":\"Jordan Lee\",\"email\":\"jordan@example.com\",\"primary_goal\":\"Build consistent strength\",\"experience_level\":\"Beginner\",\"availability\":\"Monday, Wednesday, and Friday evenings\",\"physical_constraints\":\"Previous knee discomfort; avoid assumptions\",\"preferred_consultation_time\":\"Tuesday at 6:00 PM Eastern\"}"
+          }
+        ]
+      }
+    },
+    {
+      "eval_case_id": "incomplete_intake_invalid_route",
+      "prompt": {
+        "role": "user",
+        "parts": [
+          {
+            "text": "Onboard this qualified fitness client using the submitted intake:\n{\"primary_goal\":\"Build consistent strength\"}"
+          }
+        ]
+      }
+    }
+  ]
+}

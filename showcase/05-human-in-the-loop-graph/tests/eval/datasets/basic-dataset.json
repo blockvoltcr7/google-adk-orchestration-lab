@@ -1,0 +1,37 @@
+{
+  "eval_cases": [
+    {
+      "eval_case_id": "auto_approve_small_expense",
+      "prompt": {
+        "role": "user",
+        "parts": [
+          {
+            "text": "{\"claim_id\":\"EXP-SMALL\",\"employee_name\":\"Alice\",\"amount\":120.0,\"business_justification\":\"Keyboard and mouse\"}"
+          }
+        ]
+      }
+    },
+    {
+      "eval_case_id": "high_value_approved",
+      "prompt": {
+        "role": "user",
+        "parts": [
+          {
+            "text": "{\"claim_id\":\"EXP-HIGH-OK\",\"employee_name\":\"Bob\",\"amount\":1800.0,\"business_justification\":\"Annual Developer Conference Pass\",\"human_decision\":\"approved\"}"
+          }
+        ]
+      }
+    },
+    {
+      "eval_case_id": "high_value_rejected",
+      "prompt": {
+        "role": "user",
+        "parts": [
+          {
+            "text": "{\"claim_id\":\"EXP-HIGH-NO\",\"employee_name\":\"Dan\",\"amount\":3200.0,\"business_justification\":\"First class seat upgrade\",\"human_decision\":\"rejected\"}"
+          }
+        ]
+      }
+    }
+  ]
+}

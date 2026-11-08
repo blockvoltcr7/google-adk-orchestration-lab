@@ -1,0 +1,26 @@
+{
+  "eval_cases": [
+    {
+      "eval_case_id": "refine_event_broker_spec",
+      "prompt": {
+        "role": "user",
+        "parts": [
+          {
+            "text": "{\"title\":\"Enterprise Event Streaming Broker\",\"target_platform\":\"Google Cloud\"}"
+          }
+        ]
+      }
+    },
+    {
+      "eval_case_id": "refine_auth_gateway_spec",
+      "prompt": {
+        "role": "user",
+        "parts": [
+          {
+            "text": "{\"title\":\"OAuth Identity Federation Gateway\",\"target_platform\":\"GCP Cloud Run\"}"
+          }
+        ]
+      }
+    }
+  ]
+}

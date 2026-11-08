@@ -1,0 +1,26 @@
+{
+  "eval_cases": [
+    {
+      "eval_case_id": "complete_qualified_intake",
+      "prompt": {
+        "role": "user",
+        "parts": [
+          {
+            "text": "{\"name\":\"Jordan Lee\",\"email\":\"jordan@example.com\",\"primary_goal\":\"Build consistent strength\",\"experience_level\":\"Beginner\",\"availability\":\"Monday, Wednesday, and Friday evenings\",\"physical_constraints\":\"Previous knee discomfort; avoid high-impact assumptions\",\"preferred_consultation_time\":\"Tuesday at 6:00 PM Eastern\"}"
+          }
+        ]
+      }
+    },
+    {
+      "eval_case_id": "incomplete_intake_missing_email",
+      "prompt": {
+        "role": "user",
+        "parts": [
+          {
+            "text": "{\"name\":\"Taylor Morgan\",\"primary_goal\":\"Improve general fitness\",\"experience_level\":\"Intermediate\",\"availability\":\"Saturday mornings\",\"physical_constraints\":\"None reported\",\"preferred_consultation_time\":\"Saturday at 10:00 AM Eastern\"}"
+          }
+        ]
+      }
+    }
+  ]
+}

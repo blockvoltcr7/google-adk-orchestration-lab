@@ -1,0 +1,102 @@
+{
+  "eval_set_id": "lead_qualification_evals",
+  "name": "Lead Qualification Evaluation Suite",
+  "description": "Tests state injection and qualification routing across enterprise and SMB leads",
+  "eval_cases": [
+    {
+      "eval_id": "eval_enterprise_lead",
+      "conversation": [
+        {
+          "invocation_id": "inv_1",
+          "user_content": {
+            "parts": [
+              {
+                "video_metadata": null,
+                "thought": null,
+                "inline_data": null,
+                "file_data": null,
+                "thought_signature": null,
+                "function_call": null,
+                "code_execution_result": null,
+                "executable_code": null,
+                "function_response": null,
+                "text": "We are looking to roll this out to our 250 clinicians. Can we book an enterprise demo for next Tuesday at 10am EST?"
+              }
+            ],
+            "role": "user"
+          },
+          "final_response": null,
+          "intermediate_data": null,
+          "creation_timestamp": 0.0,
+          "rubrics": null,
+          "app_details": null
+        }
+      ],
+      "session_input": {
+        "app_name": "qualification_app",
+        "user_id": "usr_enterprise_01",
+        "state": {
+          "user_id": "usr_enterprise_01",
+          "contact_id": "cnt_8841",
+          "calendar_id": "sales-enterprise@acme.com",
+          "metadata": {
+            "company_name": "HealthTech Global",
+            "company_size": 250,
+            "budget_range": "$50k-$100k",
+            "industry": "Healthcare"
+          }
+        }
+      },
+      "creation_timestamp": 0.0,
+      "rubrics": null
+    },
+    {
+      "eval_id": "eval_smb_lead",
+      "conversation": [
+        {
+          "invocation_id": "inv_1",
+          "user_content": {
+            "parts": [
+              {
+                "video_metadata": null,
+                "thought": null,
+                "inline_data": null,
+                "file_data": null,
+                "thought_signature": null,
+                "function_call": null,
+                "code_execution_result": null,
+                "executable_code": null,
+                "function_response": null,
+                "text": "We have a small team of 8. What is the right tier for us?"
+              }
+            ],
+            "role": "user"
+          },
+          "final_response": null,
+          "intermediate_data": null,
+          "creation_timestamp": 0.0,
+          "rubrics": null,
+          "app_details": null
+        }
+      ],
+      "session_input": {
+        "app_name": "qualification_app",
+        "user_id": "usr_smb_02",
+        "state": {
+          "user_id": "usr_smb_02",
+          "contact_id": "cnt_1102",
+          "calendar_id": "smb-sales@acme.com",
+          "metadata": {
+            "company_name": "Local Bakery",
+            "company_size": 8,
+            "budget_range": "$2k-$5k",
+            "industry": "Food & Beverage"
+          }
+        }
+      },
+      "creation_timestamp": 0.0,
+      "rubrics": null
+    }
+  ],
+  "creation_timestamp": 0.0
+}

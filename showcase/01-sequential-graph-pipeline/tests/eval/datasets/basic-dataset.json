@@ -1,0 +1,26 @@
+{
+  "eval_cases": [
+    {
+      "eval_case_id": "standard_order_under_100",
+      "prompt": {
+        "role": "user",
+        "parts": [
+          {
+            "text": "{\"customer_name\":\"Alice Smith\",\"customer_email\":\"alice@example.com\",\"items\":[{\"name\":\"Yoga Mat\",\"quantity\":1,\"unit_price\":45.0}],\"shipping_city\":\"Austin\"}"
+          }
+        ]
+      }
+    },
+    {
+      "eval_case_id": "premium_order_over_100",
+      "prompt": {
+        "role": "user",
+        "parts": [
+          {
+            "text": "{\"customer_name\":\"Robert Johnson\",\"customer_email\":\"robert@example.com\",\"items\":[{\"name\":\"Adjustable Dumbbells\",\"quantity\":1,\"unit_price\":299.99}],\"shipping_city\":\"Seattle\"}"
+          }
+        ]
+      }
+    }
+  ]
+}

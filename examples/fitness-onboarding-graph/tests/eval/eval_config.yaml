@@ -1,0 +1,15 @@
+metrics_to_run:
+  - graph_route_policy
+  - onboarding_response_quality
+  - onboarding_safety_policy
+
+custom_metrics:
+  - name: graph_route_policy
+    custom_function_file: graph_route_policy.py
+    execution: local
+  - name: onboarding_response_quality
+    custom_function_file: onboarding_response_quality.py
+    execution: local
+  - name: onboarding_safety_policy
+    custom_function_file: onboarding_safety_policy.py
+    execution: local

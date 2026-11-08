@@ -1,0 +1,7 @@
+metrics_to_run:
+  - fan_in_gather_policy
+
+custom_metrics:
+  - name: fan_in_gather_policy
+    custom_function_file: eval_metrics.py
+    execution: local

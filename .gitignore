@@ -1,0 +1,42 @@
+# Local credentials and runtime state
+.env
+.env.*
+!.env.example
+!.env.*.example
+**/.adk/
+**/.google-agents-cli/
+**/*.db
+**/*.tfstate
+**/*.tfstate.*
+**/.terraform/
+**/.terraform.lock.hcl
+
+# Dependencies, caches, and generated output
+**/.venv/
+**/node_modules/
+**/__pycache__/
+**/.pytest_cache/
+**/.ruff_cache/
+**/.mypy_cache/
+**/.DS_Store
+**/*.pyc
+**/dist/
+**/build/
+**/*.egg-info/
+**/artifacts/
+.archify/
+**/*.browser-check.json
+**/*.delivery.json
+**/*.finalize.json
+**/*.finalize-summary.json
+
+# Third-party reference checkout; consult its original repository instead.
+graph-engineering/refs/adk2-tutorial/
+
+# Terraform plan files can contain sensitive data
+**/tfplan
+**/*.tfplan
+
+# Local example contains a private cloud project identifier.
+examples/bigquery-analytics-agent/
+examples/fitness-onboarding/deployment/terraform/single-project/vars/env.tfvars

@@ -1,0 +1,26 @@
+{
+  "eval_cases": [
+    {
+      "eval_case_id": "publish_adk_overview",
+      "prompt": {
+        "role": "user",
+        "parts": [
+          {
+            "text": "{\"title\":\"Mastering Google ADK 2.x Workflows\",\"raw_markdown\":\"# Mastering Google ADK\\nGraph workflows provide reliable agent engineering.\",\"author\":\"Agent Guild\",\"channel\":\"Core Engineering\"}"
+          }
+        ]
+      }
+    },
+    {
+      "eval_case_id": "publish_agent_engine_deployment",
+      "prompt": {
+        "role": "user",
+        "parts": [
+          {
+            "text": "{\"title\":\"Zero-Downtime Agent Engine Deployments\",\"raw_markdown\":\"# Zero Downtime\\nAutomating Vertex AI Agent Runtime deployments.\",\"author\":\"Platform Team\",\"channel\":\"SRE Dispatch\"}"
+          }
+        ]
+      }
+    }
+  ]
+}

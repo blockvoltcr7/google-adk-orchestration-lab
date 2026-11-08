@@ -1,0 +1,26 @@
+{
+  "eval_cases": [
+    {
+      "eval_case_id": "dynamic_clean_document",
+      "prompt": {
+        "role": "user",
+        "parts": [
+          {
+            "text": "{\"doc_id\":\"DOC-CLEAN\",\"title\":\"Operational Runbook\",\"sections\":[{\"section_index\":1,\"heading\":\"Intro\",\"content\":\"Deployment steps for container service.\"},{\"section_index\":2,\"heading\":\"Rollback\",\"content\":\"Automated canary rollback procedure.\"}]}"
+          }
+        ]
+      }
+    },
+    {
+      "eval_case_id": "dynamic_risk_document",
+      "prompt": {
+        "role": "user",
+        "parts": [
+          {
+            "text": "{\"doc_id\":\"DOC-RISK\",\"title\":\"Security Incident Audit\",\"sections\":[{\"section_index\":1,\"heading\":\"Detection\",\"content\":\"Unusual spike in network traffic.\"},{\"section_index\":2,\"heading\":\"Threat\",\"content\":\"Potential credential breach in staging environment.\"},{\"section_index\":3,\"heading\":\"Remediation\",\"content\":\"All tokens revoked immediately.\"}]}"
+          }
+        ]
+      }
+    }
+  ]
+}
