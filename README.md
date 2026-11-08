@@ -2,12 +2,12 @@
 
 A visual, hands-on learning lab for designing agent workflows with Google's Agent Development Kit (ADK). It combines an orchestration pattern atlas with independently structured example projects and graph engineering exercises. The curriculum is designed for developers and for creating clear, repeatable lessons for a learning community.
 
-**The outcome:** learn to choose an orchestration pattern, implement it around a business problem, inspect what actually happened, and explain the result to someone else. The examples make abstract concepts tangible: client onboarding and other business workflows.
+**The outcome:** learn to choose an orchestration pattern, implement it around a business problem, inspect what actually happened, and explain the result to someone else. The examples make abstract concepts tangible: client onboarding, retail analytics, and other business workflows.
 
 ## What you will find
 
 - **A visual atlas:** 13 patterns, each with a diagram, explanation, tradeoffs, and related patterns in [visuals/](visuals/README.md).
-- **Practical projects:** two standalone versions of the same fitness-onboarding scenario.
+- **Practical projects:** three standalone examples, including two versions of the same fitness-onboarding scenario and a retail analytics demonstration.
 - **Graph engineering:** seven separate projects in the [showcase](showcase/README.md), covering fixed sequences, routing, fan-in, iteration, human input, nested workflows, and dynamic orchestration.
 - **Experiments and references:** a lead qualification service in [graph-engineering/](graph-engineering/), the external [ADK 2 tutorial](https://github.com/cuppibla/adk2-tutorial), and a conceptual [interactive architecture simulator](interactive-video/README.md).
 - **Ideas for later:** adjacent topics in [additional-patterns-worth-exploring/](additional-patterns-worth-exploring/README.md).
@@ -48,13 +48,14 @@ Both are local prototypes with mock booking and email behavior; they do not send
 |---|---|---|
 | [Fitness onboarding](examples/fitness-onboarding/README.md) | Fixed-order multi-agent coordination, session state, tools, and behavioral evaluation. | Configured model access; mock business actions. |
 | [Fitness onboarding graph](examples/fitness-onboarding-graph/README.md) | Typed graph nodes, explicit routes, and a terminal invalid-input path. | Configured model access; mock business actions. |
+| [BigQuery retail analytics](examples/bigquery-analytics-agent/README.md) | Natural-language analytics using `BigQueryToolset`, write blocking, and synthetic retail data. | Google Cloud credentials and a Terraform-managed BigQuery dataset; provisioning can incur costs. |
 | [Graph engineering showcase](showcase/README.md) | Seven independently structured projects illustrating graph control-flow patterns across business scenarios. | Varies by project; read its setup and deployment instructions. |
 
 Project documentation may record past test or evaluation results and deployment configurations. Those records are not proof of a current run or a deployed service. Review each project's commands, access needs, and evidence before use.
 
 ## Patterns and technologies
 
-The examples use **Python** and **Google ADK**, including `LlmAgent`, `SequentialAgent`, graph `Workflow`, routes, `JoinNode`, and dynamic nodes. Depending on the project, they also demonstrate **Gemini/Vertex AI**, **Pydantic** contracts, **YAML** prompts, session state and tools, **MCP**, **Terraform**, **uv**, **pytest**, and **Agents CLI** runs and evaluations. These are project-specific capabilities, not dependencies required for every lesson.
+The examples use **Python** and **Google ADK**, including `LlmAgent`, `SequentialAgent`, graph `Workflow`, routes, `JoinNode`, and dynamic nodes. Depending on the project, they also demonstrate **Gemini/Vertex AI**, **Pydantic** contracts, **YAML** prompts, session state and tools, **MCP**, **BigQuery**, **Terraform**, **uv**, **pytest**, and **Agents CLI** runs and evaluations. These are project-specific capabilities, not dependencies required for every lesson.
 
 ## Pattern catalog
 

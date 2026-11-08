@@ -37,6 +37,5 @@ graph-engineering/refs/adk2-tutorial/
 **/tfplan
 **/*.tfplan
 
-# Local example contains a private cloud project identifier.
-examples/bigquery-analytics-agent/
+# Local deployment configuration contains a private cloud project identifier.
 examples/fitness-onboarding/deployment/terraform/single-project/vars/env.tfvars
