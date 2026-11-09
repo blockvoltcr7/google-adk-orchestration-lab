@@ -4,6 +4,28 @@ A local Google ADK showcase that translates natural-language retail questions
 into read-only BigQuery queries. It uses Google's supported `BigQueryToolset`, a
 small Terraform-managed dataset, and Agents CLI behavioral evaluations.
 
+## Architecture at a glance
+
+![Intended BigQuery analytics architecture: a user interacts with an ADK agent and Gemini; the agent uses read-only BigQuery tools to query a table seeded from public synthetic data](visuals/architecture-overview.png)
+
+The agent is configured to use a single BigQuery table, with write blocking and
+query and result limits. Terraform creates the dataset; a separate seed script
+populates the table. The image describes the intended design, not a verified run.
+
+## From question to answer
+
+![Intended sequence from a local question through optional metadata lookup and a read-only BigQuery query to a grounded answer](visuals/query-flow.png)
+
+[Open the interactive Archify sequence](visuals/query-flow.html) (download the
+HTML and open it locally). Metadata lookup is optional, and the model chooses
+which available tools to call. The sequence illustrates the agent instructions;
+it is not a recorded execution trace.
+
+> **Current verification:** The unit tests did not collect with Google ADK
+> 2.7.1 because `google.adk.integrations.bigquery` was unavailable in that
+> environment. The diagrams document the intended implementation, not confirmed
+> runtime behavior.
+
 ## What the demo answers
 
 - Total completed revenue in 2024
